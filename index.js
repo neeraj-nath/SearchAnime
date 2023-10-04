@@ -17,7 +17,6 @@ app.get("/",(req,res) => {
     res.render("index.ejs");
 });
 app.post("/get-anime", async (req,res) =>{
-    console.log(req.body);
     const result = await axios.get(`https://kitsu.io/api/edge/anime?filter[text]=${req.body.animeName}&[categories]=${req.body.animeCategory}`);
     res.render("index.ejs",{
         results : result.data.data
