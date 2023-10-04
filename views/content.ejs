@@ -1,0 +1,42 @@
+<div id="content">
+    
+    <div id="search-title"> Search Anime By</div>
+    <div id="search-input">
+        <form action="" method="post">
+            <div>
+                <input class="search-field" type="text" name="animeName" placeholder="Anime Name">
+            </div>
+            <div> 
+                <input class="search-field" type="text" name="animeCategory" placeholder="Anime Genre">
+            </div>
+            <div> 
+                <input id="submit-btn" type="submit" formaction="/get-anime" value=" Search">
+            </div>
+        </form>
+    </div>
+    <% if (locals.results) { %>
+        <div id="anime-content">
+        
+            <% results.forEach(result => { %>
+                <ul>  
+                        <li> <img src=<%= result.attributes.posterImage.tiny %> alt=""> </li>
+                        <li> Title : <%= result.attributes.titles.en %> </li>
+                        <li> Synopsis : <%= result.attributes.synopsis %> </li>
+                        <li> Average Rating  : <%= result.attributes.averageRating %> </li> 
+                </ul>  
+            <%  }); %>
+        </div>
+    <% } else { %>
+        <div id="no-show">
+            <div>
+                We're your go-to destination for all things anime.
+            This platform makes it a breeze to find your favorite anime series and movies. 
+            Whether you're searching by name or genre, or even both, we've got you covered. 
+            Say goodbye to endless scrolling and hello to a streamlined anime discovery experience. 
+            Start exploring now and uncover the world of anime like never before!
+            </div>
+            
+        </div>       
+    <% } %>
+    
+</div>
